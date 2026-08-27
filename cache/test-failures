@@ -1,0 +1,1 @@
+{"version":1,"failures":[{"contract":"test/EuroID.t.sol:EuroIDTest","test":"test_ZeroAddressOwnerRejected"}]}
