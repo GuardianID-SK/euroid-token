@@ -15,7 +15,7 @@ European Digital Identity Token | Ethereum MainNet
 - 🌐 Website: https://guardian-id.org
 - 📊 Etherscan: https://etherscan.io/token/0x905cc1ca8b81bc22f395ecbe7513f57eabe1ce0c
 - 💱 Uniswap V4: https://app.uniswap.org/explore/tokens/ethereum/0x905cc1ca8b81bc22f395ecbe7513f57eabe1ce0c
-- 📱 Telegram: [Coming Soon]
+- 📱 Telegram: https://t.me/EuroID500
 - 🐦 Twitter: [@EuroID_Token](https://twitter.com/EuroID_Token)
 
 ## Tokenomics
@@ -42,7 +42,7 @@ European Digital Identity Token | Ethereum MainNet
 
 - **EID/ETH Pool:** 0.25% fee (Uniswap V4)
 - **EID/USDC Pool:** 0.9% fee (Uniswap V4)
-- **Total Liquidity:** $5,707+
+- **Total Liquidity:** ,707+
 
 ## Vision
 
