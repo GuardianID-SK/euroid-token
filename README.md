@@ -1,136 +1,122 @@
-# EuroID — Solidity/Foundry Token
+# EuroID (EID)
 
-**EuroID** is a fixed-supply ERC-20 token deployed on **Tron MainNet** for GUARDIAN ID.
+**ERC-20 utility token issued by GUARDIAN ID, a registered Slovak non-profit organisation.**
 
-## Token Properties
+> **Not affiliated with the European Union.** EuroID is not an official EU
+> identity credential and is not connected to the EU Digital Identity Wallet
+> (EUDI), the eIDAS framework, or any national eID scheme. See
+> [Disclosures](#disclosures) below.
 
-```
-Name:              EuroID
-Symbol:            EID
-Standard:          ERC-20 (TRC-20 on Tron)
-Decimals:          18
-Total Supply:      500,000,000 EID (immutable)
-Owner:             GUARDIAN ID (multisig, eventually)
-Treasury:          GUARDIAN ID organizational treasury
-```
+---
 
-## Architecture
+## Contract
 
-### Core Contract: EuroID.sol
+| | |
+|---|---|
+| **Contract address** | `0x905Cc1ca8B81BC22F395ECbE7513f57Eabe1ce0c` |
+| **Network** | Ethereum Mainnet (chain ID 1) |
+| **Name / Symbol** | EuroID / EID |
+| **Decimals** | 18 |
+| **Total supply** | 500,000,000 EID (fixed) |
+| **Standard** | ERC-20 (OpenZeppelin) |
 
-- **Standard ERC-20** with OpenZeppelin `ERC20.sol`
-- **Transparent Ownership** via OpenZeppelin `Ownable2Step`
-- **Fixed Supply** — exactly 500,000,000 EID created at deployment
-- **No Minting** after deployment — total supply never changes
-- **No Transfer Taxes** — all transfers are standard ERC-20
-- **No Rebasing, Blacklisting, or Hidden Restrictions**
+**Verify it yourself:**
+[Etherscan token](https://etherscan.io/token/0x905cc1ca8b81bc22f395ecbe7513f57eabe1ce0c) ·
+[Verified source code](https://etherscan.io/address/0x905cc1ca8b81bc22f395ecbe7513f57eabe1ce0c#code)
 
-### Constructor Parameters
+The address above is the **only** official EuroID contract. Any other token
+using the name "EuroID" or the symbol "EID" is unrelated to GUARDIAN ID.
 
-```solidity
-address guardianOwner    // Owner of the smart contract (for governance)
-address treasury         // Receives all 500M EID at deployment
-```
+---
 
-### Key Features
+## Contract properties
 
-1. **Immutable Supply**
-   - Total supply locked at deployment time
-   - No public or internal mint function
-   - No burn function (supply cannot be reduced)
-   - No rebase or reflection mechanics
+The contract is deliberately minimal. What it **does not** have matters more
+than what it does:
 
-2. **Owner Powers** (Limited)
-   - Cannot mint or burn tokens
-   - Cannot seize tokens from users
-   - Cannot modify balances arbitrarily
-   - Can only be transferred via safe two-step process
-   - **Purpose**: organizational attribution and future narrowly-scoped admin functions
+| Property | Status |
+|---|---|
+| Mint function after deployment | ❌ None — supply is immutable |
+| Burn function | ❌ None |
+| Transfer tax / fee on trade | ❌ None |
+| Blacklist / freeze / seize | ❌ None |
+| Pause function | ❌ None |
+| Rebasing | ❌ None |
+| Proxy / upgradeable | ❌ None — contract is immutable |
+| Ownership | `Ownable2Step` (two-step transfer) |
 
-3. **Standard ERC-20 Features**
-   - `transfer(to, amount)` — send tokens
-   - `approve(spender, amount)` — allow spending
-   - `transferFrom(from, to, amount)` — spend approved tokens
-   - `balanceOf(account)` — check balance
-   - `allowance(owner, spender)` — check approval
+The `owner` role has **no privileges over token balances or transfers**. There
+is no `onlyOwner` function in the contract. Ownership exists only for
+administrative identification.
 
-## Build and Test
+---
 
-### Compile
+## Issuer
 
-```bash
-forge build
-```
+**GUARDIAN ID**, non-profit organisation
+Company ID (IČO): **55002005**
+Registered: 8 December 2022
+Pri kalvárii 614/31, 917 01 Trnava, Slovak Republic
 
-### Run Tests
+Website: [guardian-id.org](https://guardian-id.org) ·
+Token page: [eid.guardian-id.org](https://eid.guardian-id.org) ·
+Contact: info@guardian-id.org
 
-```bash
-forge test -vv
-```
+---
 
-**Test Results** (as of deployment):
-- 17 unit tests: ✅ ALL PASSED
-- Coverage: name, symbol, decimals, supply, owner, treasury, transfers, approvals, no minting, no seizure, supply immutability, ownership transfer
+## Supply distribution
 
-## Deployment
+See [TOKENOMICS.md](TOKENOMICS.md) for the full breakdown with wallet
+addresses. Summary as currently held on-chain:
 
-### Tron MainNet Deployment
+| Holder | Amount | Share |
+|---|---:|---:|
+| Project owner / deployer | 248,119,110 | 49.62% |
+| Treasury | 150,000,000 | 30.00% |
+| Founder / operations | 100,000,000 | 20.00% |
+| Early distribution (9 wallets) | ~1,875,000 | 0.38% |
+| Uniswap V4 liquidity | ~5,086 | 0.001% |
 
-⚠️ **CRITICAL SECURITY WARNING**
+**Supply is currently highly concentrated and is not time-locked.** We consider
+this a limitation, not a feature; see [Known limitations](#known-limitations).
 
-Never commit private keys to version control. Use environment variables or secure key management.
+---
 
-#### Step 1: Export Private Key from MetaMask
+## Known limitations
 
-1. Open MetaMask
-2. Click your account → Settings → Security & Privacy
-3. Export Private Key (confirm your password)
-4. Store securely (never share, never commit to git)
+We publish these openly rather than let anyone discover them on their own.
 
-#### Step 2: Prepare Environment
+1. **Supply concentration.** Three wallets hold 99.6% of supply. Until this is
+   addressed, EID should be treated as an early-stage, closely held token.
+2. **No time-lock or vesting is in place.** Project, treasury and operations
+   wallets are ordinary externally owned accounts. No smart-contract lock
+   currently restricts them.
+3. **Liquidity is minimal.** The Uniswap V4 position is nominal. EID is **not
+   meaningfully tradable** at present and we do not encourage anyone to buy it
+   on the open market until this changes.
+4. **No third-party security audit.** An internal review has been performed
+   (see `SECURITY_AUDIT_REPORT.md`). It is not an independent audit and should
+   not be read as one.
+5. **No market price.** EID has no established market value.
 
-```bash
-export GUARDIAN_OWNER=0x1b1053887700691Fc6AF89fFc5Cab725BF6a00d9
-export GUARDIAN_TREASURY=0x1b1053887700691Fc6AF89fFc5Cab725BF6a00d9
-export PRIVATE_KEY=0x<your_private_key_here>
-```
+---
 
-#### Step 3: Deploy to Tron MainNet
+## Disclosures
 
-```bash
-forge script script/DeployEuroID.s.sol:DeployEuroID \
-  --rpc-url https://rpc.trongrid.io \
-  --private-key $PRIVATE_KEY \
-  --broadcast
-```
+- EuroID is **not a stablecoin**. It is not pegged to the euro or any other
+  currency. Its value is neither backed nor guaranteed.
+- EuroID is **not electronic money** and not an e-money token under the MiCA
+  regulation. It is not issued by a regulated financial institution.
+- EuroID is **not an official EU identity credential**. GUARDIAN ID is not
+  affiliated with, endorsed by, accredited by, or acting on behalf of any
+  institution of the European Union. EuroID is not part of the EU Digital
+  Identity Wallet (EUDI), is not eIDAS-conformant, and holds no regulatory
+  certification of any kind.
+- Nothing in this repository is investment advice, an offer, or a solicitation
+  to buy any asset.
 
-#### Step 4: Add to MetaMask
+---
 
-1. Open MetaMask
-2. Click "Import Tokens"
-3. Enter the contract address from Step 3 output
-4. Decimals: 18
-5. Confirm
+## Licence
 
-## Security
-
-- ✅ No mint after deployment
-- ✅ No token seizure capability
-- ✅ No transfer taxes or hidden mechanics
-- ✅ Ownership via safe two-step transfer
-- ✅ OpenZeppelin audited libraries
-- ✅ No upgradeable proxy
-
-## Owner Limitations
-
-Owner **CANNOT**:
-- Create new EID tokens
-- Destroy tokens
-- Seize user balances
-- Freeze addresses
-- Impose taxes
-- Change total supply
-
-## License
-
-MIT
+See [LICENSE](LICENSE).

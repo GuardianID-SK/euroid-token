@@ -1,0 +1,50 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Private keys and secrets
+*.key
+*.pem
+*.priv
+private_key*
+PRIVATE_KEY*
+
+# Credentials
+secrets.json
+credentials.json
+auth.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Build and cache
+build/
+dist/
+*.egg-info/
+__pycache__/
+*.pyc
+.pytest_cache/
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local dev
+*.log
+*.pid
+.tmp/
+
+# Python
+venv/
+env/
+.venv
+
+# Foundry
+out/
+broadcast/
