@@ -1,6 +1,6 @@
-# EuroID (EID)
+# EuroID (EID) — Independent Digital Identity Token
 
-**ERC-20 utility token issued by GUARDIAN ID, a registered Slovak non-profit organisation.**
+**Built in Europe by GUARDIAN ID, a registered Slovak non-profit organisation.**
 
 > **Not affiliated with the European Union.** EuroID is not an official EU
 > identity credential and is not connected to the EU Digital Identity Wallet
