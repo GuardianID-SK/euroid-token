@@ -48,38 +48,13 @@ is done — and not before.
 | EID / ETH | Uniswap V4 | ~5,086 | Nominal |
 
 **EID is not meaningfully tradable at present.** The current position is
-nominal and any non-trivial trade would experience severe slippage. We do not
-encourage purchases on the open market at this stage.
-
-Liquidity provider tokens are **not** locked. When a meaningful pool is
-established, the LP position will be locked and the lock proof published here.
+primarily for on-chain verifiability. Any attempt at significant trading would
+experience severe price impact.
 
 ---
 
-## Airdrop (planned, not yet live)
+## Supply concentration and risk
 
-An airdrop contract using a whitelist-and-claim mechanism has been developed
-but is **not deployed and not funded**. Terms, eligibility and allocation size
-will be published here before it goes live. No airdrop is currently open, and
-GUARDIAN ID will never send unsolicited tokens to wallets that did not claim
-them.
-
----
-
-## Fees
-
-There are no protocol fees. The token contract charges nothing on transfer.
-Liquidity providers on Uniswap receive the pool's swap fees in full; GUARDIAN
-ID extracts no fee from trading.
-
----
-
-## Disclosures
-
-EuroID is not a stablecoin, is not pegged to the euro, is not electronic money
-or an e-money token under MiCA, and is not an official EU identity credential.
-GUARDIAN ID is not affiliated with any institution of the European Union.
-Nothing here is investment advice or an offer to sell any asset.
-
-Issuer: GUARDIAN ID, non-profit organisation, IČO 55002005,
-Pri kalvárii 614/31, 917 01 Trnava, Slovak Republic.
+Three wallets account for 99.6% of total supply. EuroID should be treated as
+an early-stage, closely held token. Holders of these wallets can transfer their
+balances at any time; there is no technical restriction.
