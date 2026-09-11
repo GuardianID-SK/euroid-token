@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#061225">
+  <meta name="description" content="EuroID (EID) — independent digital identity token. Built in Europe by GUARDIAN ID, a Slovak non-profit.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta property="og:title" content="EuroID (EID) — Independent Digital Identity Token">
+  <meta property="og:description" content="EuroID (EID) — independent digital identity token. Built in Europe by GUARDIAN ID, a Slovak non-profit.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="banner.jpg">
+  <title>EuroID — Digital Identity Infrastructure</title>
+  <link rel="icon" href="logo.png">
+  <link rel="preload" as="image" href="banner.jpg">
+  <link rel="stylesheet" href="assets/site.css">
+  <style>
+    /* Language Selector Modal */
+    .lang-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9998;
+      backdrop-filter: blur(5px);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .lang-modal.hidden {
+      display: none;
+    }
+
+    .lang-modal-content {
+      background: linear-gradient(135deg, rgba(10, 44, 82, 0.95), rgba(4, 15, 33, 0.95));
+      border: 1px solid rgba(78, 232, 255, 0.3);
+      border-radius: 24px;
+      padding: 48px;
+      max-width: 600px;
+      width: 90%;
+      box-shadow: 0 50px 120px rgba(0, 0, 0, 0.6);
+      text-align: center;
+      animation: slideUp 0.4s ease;
+    }
+
+    .lang-modal h2 {
+      font-size: 32px;
+      color: #fff;
+      margin: 0 0 16px;
+      font-weight: 800;
+    }
+
+    .lang-modal p {
+      color: #a0b8d4;
+      margin: 0 0 36px;
+      font-size: 15px;
+    }
+
+    .lang-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 12px;
+    }
+
+    .lang-btn {
+      padding: 16px;
+      border: 1.5px solid rgba(78, 232, 255, 0.2);
+      background: rgba(8, 25, 51, 0.6);
+      color: #a8c5dd;
+      border-radius: 14px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 700;
+      transition: all 0.25s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .lang-btn:hover {
+      border-color: rgba(78, 232, 255, 0.6);
+      background: rgba(78, 232, 255, 0.1);
+      color: #4ee8ff;
+      transform: translateY(-2px);
+    }
+
+    .lang-btn.active {
+      background: linear-gradient(135deg, #1676df, #23bbdf);
+      border-color: #4ee8ff;
+      color: #fff;
+      box-shadow: 0 10px 30px rgba(18, 126, 224, 0.3);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Language flag helper */
+    .lang-flag {
+      display: block;
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Language Selection Modal -->
+  <div class="lang-modal" id="langModal">
+    <div class="lang-modal-content">
+      <h2 data-en="Select Language" data-de="Sprache wählen" data-ru="Выберите язык" data-hi="भाषा चुनें" data-ar="اختر اللغة">Select Language</h2>
+      <p data-en="Choose your preferred language to continue" data-de="Wählen Sie Ihre bevorzugte Sprache" data-ru="Выберите предпочтительный язык" data-hi="अपनी पसंद की भाषा चुनें" data-ar="اختر لغتك المفضلة">Choose your preferred language to continue</p>
+
+      <div class="lang-grid">
+        <button class="lang-btn" data-lang="en">
+          <span class="lang-flag">🇬🇧</span>
+          English
+        </button>
+        <button class="lang-btn" data-lang="de">
+          <span class="lang-flag">🇩🇪</span>
+          Deutsch
+        </button>
+        <button class="lang-btn" data-lang="ru">
+          <span class="lang-flag">🇷🇺</span>
+          Русский
+        </button>
+        <button class="lang-btn" data-lang="hi">
+          <span class="lang-flag">🇮🇳</span>
+          हिंदी
+        </button>
+        <button class="lang-btn" data-lang="ar">
+          <span class="lang-flag">🇸🇦</span>
+          العربية
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-noise" aria-hidden="true"></div>
+  <header class="site-header" id="top">
+    <nav class="nav shell" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="EuroID home">
+        <span class="brand-mark"><img src="logo.png" alt="" width="58" height="58"></span>
+        <span class="brand-copy">
+          <span class="brand-kicker">Guardian ID project</span>
+          <span class="brand-name">Euro<span>ID</span></span>
+        </span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-menu" id="nav-menu">
+        <a href="#overview" data-en="Overview" data-de="Überblick" data-ru="Обзор" data-hi="अवलोकन" data-ar="نظرة عامة">Overview</a>
+        <a href="#technology" data-en="Technology" data-de="Technologie" data-ru="Технология" data-hi="तकनीक" data-ar="التكنولوجيا">Technology</a>
+        <a href="#transparency" data-en="Transparency" data-de="Transparenz" data-ru="Прозрачность" data-hi="पारदर्शिता" data-ar="الشفافية">Transparency</a>
+        <a href="#roadmap" data-en="Roadmap" data-de="Roadmap" data-ru="Дорожная карта" data-hi="रोडमैप" data-ar="خريطة الطريق">Roadmap</a>
+        <a class="nav-ghost" href="https://guardian-id.org" target="_blank" rel="noopener">Guardian ID</a>
+        <a class="nav-cta" href="https://etherscan.io/token/0x905cc1ca8b81bc22f395ecbe7513f57eabe1ce0c" target="_blank" rel="noopener" data-en="View contract" data-de="Vertrag anzeigen" data-ru="Просмотр контракта" data-hi="अनुबंध देखें" data-ar="عرض العقد">View contract</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-media" aria-hidden="true"></div>
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="orb orb-a" aria-hidden="true"></div>
+      <div class="orb orb-b" aria-hidden="true"></div>
+      <div class="shell hero-layout">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span class="pulse"></span> <span data-en="Independent Digital Identity" data-de="Unabhängige digitale Identität" data-ru="Независимая цифровая идентификация" data-hi="स्वतंत्र डिजिटल पहचान" data-ar="الهوية الرقمية المستقلة">Independent Digital Identity</span></div>
+          <h1 data-en="Independent digital identity.<br><em>Built in Europe by GUARDIAN ID.</em>" data-de="Unabhängige digitale Identität.<br><em>Gebaut in Europa von GUARDIAN ID.</em>" data-ru="Независимая цифровая идентификация.<br><em>Разработано в Европе GUARDIAN ID.</em>" data-hi="स्वतंत्र डिजिटल पहचान।<br><em>GUARDIAN ID द्वारा यूरोप में निर्मित।</em>" data-ar="الهوية الرقمية المستقلة.<br><em>مبنية في أوروبا بواسطة GUARDIAN ID.</em>">Independent digital identity.<br><em>Built in Europe by GUARDIAN ID.</em></h1>
+          <p class="lead" data-en="EuroID (EID) is an open, transparent ERC-20 token supporting digital identity infrastructure, developed by a Slovak non-profit." data-de="EuroID (EID) ist ein offenes, transparentes ERC-20-Token, das digitale Identitätsinfrastruktur unterstützt und von einer slowakischen gemeinnützigen Organisation entwickelt wurde." data-ru="EuroID (EID) — это открытый, прозрачный токен ERC-20, поддерживающий инфраструктуру цифровой идентификации, разработанный словацкой некоммерческой организацией." data-hi="EuroID (EID) एक खुला, पारदर्शी ERC-20 टोकन है जो डिजिटल पहचान बुनियादी ढांचे का समर्थन करता है, जिसे एक स्लोवाक गैर-लाभकारी संगठन द्वारा विकसित किया गया है।" data-ar="EuroID (EID) رمز ERC-20 مفتوح وشفاف يدعم بنية الهوية الرقمية، تم تطويره بواسطة منظمة غير ربحية سلوفاكية.">EuroID (EID) is an open, transparent ERC-20 token supporting digital identity infrastructure, developed by a Slovak non-profit.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://etherscan.io/token/0x905cc1ca8b81bc22f395ecbe7513f57eabe1ce0c" target="_blank" rel="noopener" data-en="Inspect on Etherscan <span>↗</span>" data-de="Auf Etherscan prüfen <span>↗</span>" data-ru="Проверить на Etherscan <span>↗</span>" data-hi="Etherscan पर निरीक्षण करें <span>↗</span>" data-ar="فحص على Etherscan <span>↗</span>">Inspect on Etherscan <span>↗</span></a>
+            <a class="btn btn-secondary" href="#overview" data-en="Explore the project" data-de="Erkunden Sie das Projekt" data-ru="Изучить проект" data-hi="परियोजना को देखें" data-ar="استكشف المشروع">Explore the project</a>
+          </div>
+          <p class="micro" data-en="This website is informational. EuroID is not presented here as an official EU identity credential or as a guarantee of regulatory compliance." data-de="Diese Website dient nur zu Informationszwecken. EuroID wird hier nicht als offizieller EU-Identitätsnachweis oder als Garantie für regulatorische Compliance dargestellt." data-ru="Этот веб-сайт предоставляет только информацию. EuroID здесь не представлен как официальный EU-идентификационный документ или гарантия соответствия правилам." data-hi="यह वेबसाइट केवल सूचनात्मक है। EuroID को यहां आधिकारिक EU पहचान प्रमाण पत्र या नियामक अनुपालन की गारंटी के रूप में प्रस्तुत नहीं किया जाता है।" data-ar="هذا الموقع إعلاميّ فقط. لا يتم تقديم EuroID هنا كبيانات هوية رسمية في الاتحاد الأوروبي أو كضمان للامتثال التنظيمي.">This website is informational. EuroID is not presented here as an official EU identity credential or as a guarantee of regulatory compliance.</p>
+
+          <button onclick="document.getElementById('langModal').classList.remove('hidden')" class="btn btn-secondary" style="margin-top:20px" data-en="Change Language" data-de="Sprache ändern" data-ru="Изменить язык" data-hi="भाषा बदलें" data-ar="تغيير اللغة">Change Language</button>
+        </div>
+
+        <aside class="identity-panel reveal" aria-label="EuroID project information">
+          <div class="panel-head">
+            <span data-en="EURO-ID / NETWORK PROFILE" data-de="EURO-ID / NETZWERKPROFIL" data-ru="EURO-ID / ПРОФИЛЬ СЕТИ" data-hi="EURO-ID / नेटवर्क प्रोफाइल" data-ar="EURO-ID / ملف الشبكة">EURO-ID / NETWORK PROFILE</span>
+            <span class="status"><i></i> <span data-en="ONLINE" data-de="ONLINE" data-ru="ОНЛАЙН" data-hi="ऑनलाइन" data-ar="متصل">ONLINE</span></span>
+          </div>
+          <div class="sigil-wrap">
+            <div class="ring ring-1"></div>
+            <div class="ring ring-2"></div>
+            <img src="logo.png" alt="EuroID logo" width="240" height="240">
+          </div>
+          <div class="panel-data">
+            <div><span data-en="Network" data-de="Netzwerk" data-ru="Сеть" data-hi="नेटवर्क" data-ar="الشبكة">Network</span><strong>Ethereum</strong></div>
+            <div><span data-en="Token standard" data-de="Token-Standard" data-ru="Стандарт токена" data-hi="टोकन मानक" data-ar="معيار الرمز">Token standard</span><strong>ERC-20</strong></div>
+            <div><span data-en="Project operator" data-de="Projektbetreiber" data-ru="Оператор проекта" data-hi="परियोजना संचालक" data-ar="مشغل المشروع">Project operator</span><strong>Guardian ID</strong></div>
+          </div>
+          <button class="contract" type="button" data-contract="0x905cc1ca8b81bc22f395ecbe7513f57eabe1ce0c" aria-label="Copy contract address">
+            <span data-en="Contract" data-de="Vertrag" data-ru="Контракт" data-hi="अनुबंध" data-ar="العقد">Contract</span>
+            <code>0x905c…1ce0c</code>
+            <b data-en="Copy" data-de="Kopieren" data-ru="Скопировать" data-hi="कॉपी" data-ar="انسخ">Copy</b>
+          </button>
+        </aside>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="Project principles">
+      <div class="shell trust-grid">
+        <div><span>01</span><strong data-en="Transparent by design" data-de="Transparent nach Design" data-ru="Прозрачен по замыслу" data-hi="डिज़ाइन द्वारा पारदर्शी" data-ar="شفاف بالتصميم">Transparent by design</strong><small data-en="Publicly inspectable blockchain activity" data-de="Öffentlich überprüfbare Blockchain-Aktivität" data-ru="Публично проверяемая активность блокчейна" data-hi="सार्वजनिक रूप से निरीक्षणीय ब्लॉकचेन गतिविधि" data-ar="نشاط blockchain قابل للفحص علنًا">Publicly inspectable blockchain activity</small></div>
+        <div><span>02</span><strong data-en="Security-oriented" data-de="Sicherheitsorientiert" data-ru="Ориентирован на безопасность" data-hi="सुरक्षा-उन्मुख" data-ar="موجه نحو الأمان">Security-oriented</strong><small data-en="Architecture built around verifiability" data-de="Architektur rund um Verifizierbarkeit" data-ru="Архитектура, основанная на проверяемости" data-hi="सत्यापनीयता के आसपास बनाया गया आर्किटेक्चर" data-ar="الهندسة المعمارية المبنية حول التحقق">Architecture built around verifiability</small></div>
+        <div><span>03</span><strong data-en="Interoperability first" data-de="Interoperabilität zuerst" data-ru="Интероперабельность в первую очередь" data-hi="पहली पारस्परिकता" data-ar="التشغيل البيني أولاً">Interoperability first</strong><small data-en="Designed for open technical integration" data-de="Konzipiert für offene technische Integration" data-ru="Разработано для открытой технической интеграции" data-hi="खुले तकनीकी एकीकरण के लिए डिज़ाइन किया गया" data-ar="مصمم للتكامل التقني المفتوح">Designed for open technical integration</small></div>
+        <div><span>04</span><strong data-en="Responsible development" data-de="Verantwortungsvolle Entwicklung" data-ru="Ответственное развитие" data-hi="जिम्मेदार विकास" data-ar="التطوير المسؤول">Responsible development</strong><small data-en="Clear separation of facts, goals and research" data-de="Klare Trennung von Fakten, Zielen und Forschung" data-ru="Четкое разделение фактов, целей и исследований" data-hi="तथ्यों, लक्ष्यों और अनुसंधान का स्पष्ट पृथक्करण" data-ar="فصل واضح بين الحقائق والأهداف والبحث">Clear separation of facts, goals and research</small></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/site.js"></script>
+  <script>
+    // Language Management System
+    const TRANSLATIONS = {
+      en: { name: 'English', flag: '🇬🇧' },
+      de: { name: 'Deutsch', flag: '🇩🇪' },
+      ru: { name: 'Русский', flag: '🇷🇺' },
+      hi: { name: 'हिंदी', flag: '🇮🇳' },
+      ar: { name: 'العربية', flag: '🇸🇦' }
+    };
+
+    class LanguageManager {
+      constructor() {
+        this.currentLang = localStorage.getItem('euroid-lang') || 'en';
+        this.init();
+      }
+
+      init() {
+        // Show modal if no language selected
+        if (!localStorage.getItem('euroid-lang')) {
+          document.getElementById('langModal').classList.remove('hidden');
+        } else {
+          document.getElementById('langModal').classList.add('hidden');
+          this.applyLanguage(this.currentLang);
+        }
+
+        // Language button handlers
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const lang = e.currentTarget.dataset.lang;
+            this.selectLanguage(lang);
+          });
+        });
+      }
+
+      selectLanguage(lang) {
+        this.currentLang = lang;
+        localStorage.setItem('euroid-lang', lang);
+        this.applyLanguage(lang);
+        document.getElementById('langModal').classList.add('hidden');
+
+        // Highlight selected button
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+
+        // Update HTML lang attribute
+        document.documentElement.lang = lang === 'ar' ? 'ar' : lang;
+        if (lang === 'ar') {
+          document.documentElement.dir = 'rtl';
+          document.body.style.direction = 'rtl';
+        } else {
+          document.documentElement.dir = 'ltr';
+          document.body.style.direction = 'ltr';
+        }
+      }
+
+      applyLanguage(lang) {
+        document.querySelectorAll('[data-en]').forEach(el => {
+          const text = el.dataset[lang] || el.dataset.en;
+          if (el.tagName === 'H1' || el.tagName === 'P' || el.tagName === 'DIV' || el.tagName === 'SPAN' || el.tagName === 'STRONG' || el.tagName === 'SMALL' || el.tagName === 'BUTTON' || el.tagName === 'A') {
+            el.innerHTML = text;
+          } else {
+            el.textContent = text;
+          }
+        });
+
+        // Highlight active language in modal
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+      }
+    }
+
+    // Initialize on load
+    document.addEventListener('DOMContentLoaded', () => {
+      new LanguageManager();
+    });
+  </script>
+</body>
+</html>
