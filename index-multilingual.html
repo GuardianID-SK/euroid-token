@@ -26,10 +26,20 @@
       z-index: 9998;
       backdrop-filter: blur(5px);
       animation: fadeIn 0.3s ease;
+      pointer-events: auto;
     }
 
     .lang-modal.hidden {
-      display: none;
+      display: none !important;
+      pointer-events: none;
+    }
+
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    body:not(.modal-open) {
+      overflow: auto;
     }
 
     .lang-modal-content {
@@ -248,8 +258,10 @@
         // Show modal if no language selected
         if (!localStorage.getItem('euroid-lang')) {
           document.getElementById('langModal').classList.remove('hidden');
+          document.body.classList.add('modal-open');
         } else {
           document.getElementById('langModal').classList.add('hidden');
+          document.body.classList.remove('modal-open');
           this.applyLanguage(this.currentLang);
         }
 
@@ -260,6 +272,14 @@
             this.selectLanguage(lang);
           });
         });
+
+        // Allow reopening modal via button
+        document.querySelectorAll('button[onclick*="langModal"]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            document.getElementById('langModal').classList.remove('hidden');
+            document.body.classList.add('modal-open');
+          });
+        });
       }
 
       selectLanguage(lang) {
@@ -267,6 +287,7 @@
         localStorage.setItem('euroid-lang', lang);
         this.applyLanguage(lang);
         document.getElementById('langModal').classList.add('hidden');
+        document.body.classList.remove('modal-open');
 
         // Highlight selected button
         document.querySelectorAll('.lang-btn').forEach(btn => {
