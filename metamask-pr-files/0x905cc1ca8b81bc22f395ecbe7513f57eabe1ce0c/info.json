@@ -1,0 +1,17 @@
+{
+  "symbol": "EID",
+  "name": "EuroID",
+  "decimals": 18,
+  "address": "0x905cc1ca8b81bc22f395ecbe7513f57eabe1ce0c",
+  "image": "EuroID_Logo.svg",
+  "description": "EuroID (EID) is a European digital identity token on Ethereum. Enabling decentralized verification, cross-border payments, and frictionless access to European financial services. Secure. Transparent. Borderless.",
+  "website": "https://eid.guardian-id.org",
+  "social": {
+    "twitter": "https://twitter.com/GuardianID-SK",
+    "github": "https://github.com/GuardianID-SK/euroid-token",
+    "discord": "https://discord.gg/GuardianID"
+  },
+  "chainId": 1,
+  "isERC20": true,
+  "tokenType": "ERC20"
+}
